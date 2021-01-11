@@ -2,6 +2,7 @@ import test from 'ava';
 
 import { isMaskQuestion } from './isMaskQuestion';
 
+const extWithOutTemplate = '{}';
 const selectQuestionExt = '{"template":{"bundleName":"selectQuestion"}}';
 const maskAudioQuestionExt = '{"template":{"bundleName":"maskAudioQuestion"}}';
 const maskChoiceQuestionExt =
@@ -13,6 +14,8 @@ test('isMaskQuestion', (t) => {
   t.is(isMaskQuestion(undefined), false);
 
   t.is(isMaskQuestion('sss'), false);
+
+  t.is(isMaskQuestion(extWithOutTemplate), false);
 
   t.is(isMaskQuestion(selectQuestionExt), false);
 
